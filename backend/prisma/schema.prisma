@@ -1,0 +1,155 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id            String   @id
+  email         String   @unique
+  name          String?
+  password_hash String?
+  role          String   @default("user")
+  provider      String   @default("credentials")
+  created_at    DateTime @default(now())
+  updated_at    DateTime @updatedAt
+
+  @@map("users")
+}
+
+model Project {
+  id              String   @id
+  title           String
+  slug            String   @unique
+  description     String?
+  long_description String?
+  tech_stack      String?
+  github_url      String?
+  live_url        String?
+  images          String?
+  category        String?
+  featured        Boolean  @default(false)
+  status          String   @default("published")
+  project_date    String?
+  sort_order      Int      @default(0)
+  created_at      DateTime @default(now())
+  updated_at      DateTime @updatedAt
+
+  @@map("projects")
+}
+
+model Skill {
+  id          String   @id
+  name        String
+  category    String?
+  proficiency Int      @default(80)
+  icon        String?
+  sort_order  Int      @default(0)
+  created_at  DateTime @default(now())
+
+  @@map("skills")
+}
+
+model Experience {
+  id          String   @id
+  role        String
+  company     String
+  location    String?
+  start_date  String?
+  end_date    String?
+  current     Int      @default(0)
+  description String?
+  tech_stack  String?
+  type        String   @default("fulltime")
+  sort_order  Int      @default(0)
+  created_at  DateTime @default(now())
+
+  @@map("experience")
+}
+
+model Achievement {
+  id          String   @id
+  title       String
+  description String?
+  date        String?
+  link        String?
+  sort_order  Int      @default(0)
+  created_at  DateTime @default(now())
+
+  @@map("achievements")
+}
+
+model Certification {
+  id              String   @id
+  title           String
+  issuer          String?
+  issue_date      String?
+  credential_url  String?
+  image           String?
+  sort_order      Int      @default(0)
+  created_at      DateTime @default(now())
+
+  @@map("certifications")
+}
+
+model Contact {
+  id         String   @id
+  name       String
+  email      String
+  subject    String?
+  message    String
+  read       Int      @default(0)
+  created_at DateTime @default(now())
+
+  @@map("contacts")
+}
+
+model SocialLink {
+  id         String   @id
+  platform   String
+  url        String
+  icon       String?
+  sort_order Int      @default(0)
+
+  @@map("social_links")
+}
+
+model Hero {
+  id          Int      @id @default(1)
+  greeting    String?
+  name        String?
+  roles       String?
+  tagline     String?
+  resume_url  String?
+  updated_at  DateTime @updatedAt
+
+  @@map("hero")
+}
+
+model About {
+  id                 Int      @id @default(1)
+  heading            String?
+  content            String?
+  image              String?
+  years_experience   Int?
+  projects_completed Int?
+  happy_clients      Int?
+  updated_at         DateTime @updatedAt
+
+  @@map("about")
+}
+
+model Setting {
+  id               Int      @id @default(1)
+  site_title       String?
+  site_description String?
+  email            String?
+  phone            String?
+  location         String?
+  meta_keywords    String?
+  updated_at       DateTime @updatedAt
+
+  @@map("settings")
+}

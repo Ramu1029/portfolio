@@ -78,7 +78,7 @@ export default function Contact() {
             name="message"
             value={form.message}
             onChange={handleChange}
-            placeholder="Tell me about your project..."
+            placeholder="Every great project starts with a conversation..."
             rows={5}
             className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm focus:border-primary/50 outline-none transition-colors resize-none"
           />

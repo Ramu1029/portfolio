@@ -27,8 +27,15 @@ export default function AdminDashboard() {
 
   return (
     <div>
-      <h1 className="font-display text-2xl font-semibold mb-2">Overview</h1>
-      <p className="text-light-accent/50 text-sm mb-8">A quick snapshot of your portfolio content.</p>
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-8">
+        <div>
+          <h1 className="font-display text-2xl font-semibold mb-2">Overview</h1>
+          <p className="text-light-accent/50 text-sm">A quick snapshot of your portfolio content.</p>
+        </div>
+        <Link to="/" className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm text-light-accent/80 transition-colors hover:border-primary/40 hover:text-white w-fit">
+          Back to home
+        </Link>
+      </div>
 
       <div className="grid sm:grid-cols-3 gap-5">
         {cards.map((c) => (

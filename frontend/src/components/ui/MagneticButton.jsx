@@ -28,8 +28,8 @@ export default function MagneticButton({ children, className = '', as: Tag = 'bu
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       animate={{ x: pos.x, y: pos.y }}
-      transition={{ type: 'spring', stiffness: 150, damping: 12, mass: 0.3 }}
-      className="inline-block"
+      transition={{ type: 'spring', stiffness: 180, damping: 16, mass: 0.25 }}
+      className="inline-flex"
     >
       <Tag className={className} {...props}>
         {children}

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate, Navigate } from 'react-router-dom';
+import { Link, useNavigate, Navigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { useAuth } from '../../context/AuthContext.jsx';
 
@@ -31,9 +31,13 @@ export default function AdminLogin() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-bg container-px">
-      <form onSubmit={handleSubmit} className="glass-card w-full max-w-sm p-8">
-        <h1 className="font-display text-2xl font-semibold mb-1">Admin sign in</h1>
-        <p className="text-light-accent/50 text-sm mb-8">Restricted area — owner only.</p>
+      <div className="w-full max-w-sm">
+        <Link to="/" className="inline-flex items-center text-sm text-light-accent/70 hover:text-primary transition-colors mb-4">
+          ← Back to home
+        </Link>
+        <form onSubmit={handleSubmit} className="glass-card w-full p-8">
+          <h1 className="font-display text-2xl font-semibold mb-1">Admin sign in</h1>
+          <p className="text-light-accent/50 text-sm mb-8">Restricted area — owner only.</p>
 
         <div className="space-y-4">
           <input
@@ -54,10 +58,11 @@ export default function AdminLogin() {
           />
         </div>
 
-        <button type="submit" disabled={submitting} className="btn-primary w-full mt-8 disabled:opacity-60">
-          {submitting ? 'Signing in...' : 'Sign in'}
-        </button>
-      </form>
+          <button type="submit" disabled={submitting} className="btn-primary w-full mt-8 disabled:opacity-60">
+            {submitting ? 'Signing in...' : 'Sign in'}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
